@@ -23,6 +23,7 @@ public class EventMessage extends ListenerAdapter {
                 channel.sendMessage("pong! " + author.getName()).queue();
             }
 
+            /*
             if (msg.equals("=quote")) {
                 ZenQuotes quotes = new ZenQuotes();
                 try {
@@ -32,6 +33,8 @@ public class EventMessage extends ListenerAdapter {
                     e.printStackTrace();
                 }
             }
+
+             */
 
             //printing guild messages to console
             System.out.printf("[%s][%s] %#s: %s%n", event.getGuild().getName(),

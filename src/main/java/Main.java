@@ -1,4 +1,8 @@
 import api.ZenQuotes;
+import ca.tristan.jdacommands.JDACommands;
+import commands.CmdClear;
+import commands.CmdHello;
+import commands.CmdQuote;
 import events.EventJoin;
 import events.EventMessage;
 import model.ZenQuotesModel;
@@ -21,6 +25,11 @@ public class Main extends ListenerAdapter {
 
     public static void main(String[] args) throws LoginException {
 
+        JDACommands jdaCommands = new JDACommands("=");
+        jdaCommands.registerCommand(new CmdHello());
+        jdaCommands.registerCommand(new CmdClear());
+        jdaCommands.registerCommand(new CmdQuote());
+
         Dotenv dotenv = Dotenv.load();
         String token = dotenv.get("TOKEN");
         JDA jda = JDABuilder.create(token, Arrays.asList(INTENTS))
@@ -29,6 +38,7 @@ public class Main extends ListenerAdapter {
                 .setStatus(OnlineStatus.ONLINE)
                 .addEventListeners(new EventJoin())
                 .addEventListeners(new EventMessage())
+                .addEventListeners(jdaCommands)
                 .build();
         jda.addEventListener(new Main());
     }
