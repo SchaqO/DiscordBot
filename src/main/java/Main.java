@@ -1,6 +1,8 @@
+import api.Facts;
 import api.ZenQuotes;
 import ca.tristan.jdacommands.JDACommands;
 import commands.CmdClear;
+import commands.CmdFact;
 import commands.CmdHello;
 import commands.CmdQuote;
 import events.EventJoin;
@@ -29,6 +31,7 @@ public class Main extends ListenerAdapter {
         jdaCommands.registerCommand(new CmdHello());
         jdaCommands.registerCommand(new CmdClear());
         jdaCommands.registerCommand(new CmdQuote());
+        jdaCommands.registerCommand(new CmdFact());
 
         Dotenv dotenv = Dotenv.load();
         String token = dotenv.get("TOKEN");
@@ -41,5 +44,6 @@ public class Main extends ListenerAdapter {
                 .addEventListeners(jdaCommands)
                 .build();
         jda.addEventListener(new Main());
+
     }
 }
