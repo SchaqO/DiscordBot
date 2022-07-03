@@ -19,22 +19,21 @@ public class EventMessage extends ListenerAdapter {
             User author = event.getAuthor();
             String msg = message.getContentDisplay();
 
-            if (msg.equals("!ping")){
+            if (msg.equals("ping")){
                 channel.sendMessage("pong! " + author.getName()).queue();
             }
 
-            /*
-            if (msg.equals("=quote")) {
-                ZenQuotes quotes = new ZenQuotes();
-                try {
-                    String quote = quotes.parseURL();
-                    channel.sendMessage(quote).queue();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (msg.equals("slaw")) {
+                channel.sendMessage("Slaw kuri qoz").queue();
             }
 
-             */
+            if (msg.equals("val?")) {
+                channel.sendMessage("ay bo gw naxoy?").queue();
+            }
+
+            if (author.getId().equals("176082573028491264")) {
+                channel.sendMessage("zor qsa akay hatiw").queue();
+            }
 
             //printing guild messages to console
             System.out.printf("[%s][%s] %#s: %s%n", event.getGuild().getName(),

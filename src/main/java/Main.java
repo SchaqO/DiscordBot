@@ -37,7 +37,7 @@ public class Main extends ListenerAdapter {
         String token = dotenv.get("TOKEN");
         JDA jda = JDABuilder.create(token, Arrays.asList(INTENTS))
                 .enableCache(CacheFlag.VOICE_STATE)
-                .setActivity(Activity.playing("TEST ACTIVITY STATUS"))
+                .setActivity(Activity.playing("Slaw-ing your gf"))
                 .setStatus(OnlineStatus.ONLINE)
                 .addEventListeners(new EventJoin())
                 .addEventListeners(new EventMessage())
