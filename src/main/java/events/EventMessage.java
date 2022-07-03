@@ -31,9 +31,9 @@ public class EventMessage extends ListenerAdapter {
                 channel.sendMessage("ay bo gw naxoy?").queue();
             }
 
-            if (author.getId().equals("176082573028491264")) {
+            /*if (author.getId().equals("176082573028491264")) {
                 channel.sendMessage("zor qsa akay hatiw").queue();
-            }
+            }*/
 
             //printing guild messages to console
             System.out.printf("[%s][%s] %#s: %s%n", event.getGuild().getName(),

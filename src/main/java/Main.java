@@ -11,6 +11,7 @@ import model.ZenQuotesModel;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -20,10 +21,11 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import javax.security.auth.login.LoginException;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main extends ListenerAdapter {
 
-    public static final GatewayIntent[] INTENTS = {GatewayIntent.DIRECT_MESSAGES, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.GUILD_VOICE_STATES};
+    public static final GatewayIntent[] INTENTS = {GatewayIntent.DIRECT_MESSAGES, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_MEMBERS};
 
     public static void main(String[] args) throws LoginException {
 
@@ -46,4 +48,7 @@ public class Main extends ListenerAdapter {
         jda.addEventListener(new Main());
 
     }
+
+
+
 }

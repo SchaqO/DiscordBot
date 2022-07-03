@@ -1,7 +1,8 @@
 package commands;
 
 import ca.tristan.jdacommands.ICommand;
-import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
@@ -25,6 +26,16 @@ public class CmdClear implements ICommand {
             messageReceivedEvent.getChannel().sendMessage("Awa chyta 7aiwan, awa to bashari, number retard number.").queue();
             return;
         }
+
+        //only allow for admins
+        Guild guild = messageReceivedEvent.getGuild();
+        Role role = guild.getRoleById("887347823908114563");
+        List<Member> members = guild.getMembersWithRoles(role);
+        if(!members.contains(messageReceivedEvent.getMember())) {
+            messageReceivedEvent.getChannel().sendMessage("You're black, you have no rights").queue();
+            return;
+        }
+
 
         List<Message> messageList = messageReceivedEvent.getChannel().getHistory().retrievePast(Integer.parseInt(args[1]) + 1).complete();
         messageReceivedEvent.getTextChannel().deleteMessages(messageList).queue();
